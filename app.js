@@ -19,6 +19,11 @@ let products = [
     { id: 3, name: 'Венок из цветов', price: 500 }
 ];
 
+const getNextProductId = () => {
+    if (products.length === 0) return 1;
+    return Math.max(...products.map(product => product.id)) + 1;
+};
+
 // Получение всех товаров
 app.get('/products', (req, res) => {
     res.json(products);
@@ -39,9 +44,9 @@ app.get('/products/:id', (req, res) => {
 app.post('/products', (req, res) => {
     const { name, price } = req.body;
     
-    // Простейшая генерация id
+    // Последовательная генерация id
     const newProduct = {
-        id: Date.now(),
+        id: getNextProductId(),
         name,
         price
     };
