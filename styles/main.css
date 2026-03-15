@@ -11,6 +11,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
 }
 
 .card {
@@ -19,6 +22,9 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 300px;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
 }
 .card__image {
   width: 100%;
@@ -28,6 +34,10 @@ body {
 }
 .card__body {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 .card__title {
   font-size: 18px;
@@ -40,6 +50,8 @@ body {
   color: #7f8c8d;
   line-height: 1.6;
   margin-bottom: 16px;
+  flex: 1;
+  min-height: 64px;
 }
 .card__btn {
   display: inline-block;
@@ -53,5 +65,5 @@ body {
   text-decoration: none;
 }
 .card__btn:hover {
-  background: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  background: #2d83bc;
 }
