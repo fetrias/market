@@ -73,6 +73,26 @@ app.put('/products/:id', (req, res) => {
     }
 });
 
+// Частичное редактирование товара
+app.patch('/products/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = products.findIndex(p => p.id === id);
+
+    if (index !== -1) {
+        const { name, price } = req.body;
+
+        products[index] = {
+            ...products[index],
+            name: name !== undefined ? name : products[index].name,
+            price: price !== undefined ? price : products[index].price
+        };
+
+        res.json(products[index]);
+    } else {
+        res.status(404).send('Товар не найден');
+    }
+});
+
 // Удаление товара
 app.delete('/products/:id', (req, res) => {
     const id = parseInt(req.params.id);
