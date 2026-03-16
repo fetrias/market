@@ -8,12 +8,15 @@ body {
   font-family: "Segoe UI", sans-serif;
   background: #f0f2f5;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
   padding: 20px;
+}
+
+.catalog {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .card {
@@ -21,7 +24,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 300px;
   min-height: 440px;
   display: flex;
   flex-direction: column;
@@ -66,4 +68,22 @@ body {
 }
 .card__btn:hover {
   background: #2d83bc;
+}
+
+@media (max-width: 1200px) {
+  .catalog {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog {
+    grid-template-columns: 1fr;
+  }
 }
